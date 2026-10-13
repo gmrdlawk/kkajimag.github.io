@@ -2,14 +2,77 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>나의 첫 무료 홈페이지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kkajimag의 멋진 웹사이트</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding-top: 100px; background-color: #f4f4f4; }
-        h1 { color: #333; }
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        /* 💡 상단 내비게이션 바 스타일 */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between; /* 로고는 왼쪽, 메뉴는 오른쪽 */
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .navbar .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .navbar .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            color: #3498db; /* 마우스 올렸을 때 파란색으로 변함 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .profile-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>안녕하세요! kkajimag님의 무료 웹사이트입니다.</h1>
-    <p>성공적으로 도메인이 연결되어 웹에 게시되었습니다.</p>
+
+    <!-- 💡 상단 메뉴 바 시작 -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">kkajimag 홈</a>
+        <div class="nav-links">
+            <a href="index.html" style="color: #3498db;">홈</a>
+            <a href="photo.html">사진</a>
+            <a href="news.html">기사</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>kkajimag의 홈페이지에 오신 것을 환영합니다!</h1>
+        <p>상단 오른쪽에 있는 메뉴를 클릭하여 각 페이지(사진, 기사)로 이동해 보세요.</p>
+        <!-- 아까 업로드한 이미지 파일 이름이 있다면 아래 'myphoto.jpg'를 수정하세요 -->
+        <img src="myphoto.jpg" alt="소개 이미지" class="profile-img">
+    </div>
+
 </body>
 </html>
