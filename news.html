@@ -2,20 +2,166 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>기사 및 블로그</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>까지 매거진 - 기사</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f9f9f9; }
-        .menu { text-align: right; margin-bottom: 30px; }
-        .menu a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; }
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        /* 1. 상단 내비게이션 바 (통일성 유지) */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .navbar .logo-link {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .navbar .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+        .navbar .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* 2. 기사 본문 컨테이너 */
+        .article-container {
+            max-width: 700px; /* 글 읽기 가장 편한 최적의 너비 */
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* 3. 기사 헤더 (제목, 날짜) */
+        .article-header {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .article-category {
+            color: #3498db;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .article-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            color: #111111;
+            margin: 0 0 15px 0;
+        }
+        .article-date {
+            font-size: 0.9rem;
+            color: #8e8e8e;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background-color: #dbdbdb;
+            margin: 20px 0 40px 0;
+        }
+
+        /* 4. 기사 대표 이미지 */
+        .article-main-img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* 5. 기사 본문 텍스트 */
+        .article-body {
+            font-size: 1.1rem;
+            color: #262626;
+            text-align: justify; /* 양쪽 정렬로 깔끔하게 */
+        }
+        .article-body p {
+            margin-bottom: 25px;
+        }
+        /* 본문 중간 강조 문구 */
+        .highlight-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 35px 0;
+            font-style: italic;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
-    <div class="menu">
-        <a href="index.html">홈</a>
-        <a href="photo.html">사진</a>
-        <a href="news.html" style="color: #3498db;">기사</a>
-    </div>
-    <h1>📰 기사 및 게시글 페이지</h1>
-    <p>여기에 유익한 글이나 뉴스 기사를 작성할 수 있습니다.</p>
+
+    <!-- 상단 메뉴 바 ('까지'로 연동 완료) -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">까지</a>
+        <div class="nav-links">
+            <a href="index.html">홈</a>
+            <a href="photo.html">사진</a>
+            <a href="news.html" style="color: #3498db;">기사</a>
+        </div>
+    </nav>
+
+    <!-- 기사 영역 시작 -->
+    <main class="article-container">
+        
+        <header class="article-header">
+            <span class="article-category">Culture & Tech</span>
+            <!-- ✍️ 기사 제목 수정하는 곳 -->
+            <h1 class="article-title">Jarasum Jazz Festival in Gapyeong, From the Front Gate to the Ride Home</h1>
+            <!-- ✍️ 작성 날짜 수정하는 곳 -->
+            <span class="article-date">발행일: 2026년 10월 13일</span>
+        </header>
+
+        <hr class="divider">
+
+        <!-- 🖼️ 기사 사진 넣는 곳 -->
+        <!-- ⚠️ 중요: 메인화면에 올렸던 사진 파일명(예: main.jpg)이나, 새로 [Upload files]로 올린 기사용 사진 파일명을 여기에 적어주세요! -->
+        <img src="main.jpg" alt="기사 대표 이미지" class="article-main-img">
+
+        <!-- ✍️ 기사 본문 글 수정하는 곳 -->
+        <div class="article-body">
+            <p>The Jarasum Jazz Festival ran from Friday to Sunday. I wanted to go on Saturday, so I bought my ticket at 4:40 p.m. on Thursday, the day before the festival opened. Tickets bought online by 5 p.m. the day before opening were 88,000 won, versus 99,000 won at the door. My friend bought hers after the online discount ended and paid the full 99,000.
+The organizers ran shuttle buses from Seoul to Jarasum Island in Gapyeong: 20,000 won from Seoul, 28,000 won for the ride back. That was steep for a round trip, so we took public transit instead. The 9:15 a.m. bus from Dong Seoul Bus Terminal to Gapyeong cost 8,700 won, and it got us there in about an hour and ten minutes.
+It was October, but the sun was strong and it was hot. Sunglasses and hats on, we walked about 20 minutes to the festival grounds. (Right at the island’s entrance, there was even a dakgalbi restaurant selling spicy marinated chicken for 15,000 won a portion.) We headed to the ticket booth first so we could get in and eat inside.
+            <div class="highlight-box">
+               Waiting to Get In, and the Crowd
+             <p>Swapping our tickets for wristbands took less than a minute. The catch: the entry line formed at 11 a.m., but you couldn’t actually go in until noon. The staff member managing the line was vague about it, so a lot of people lined up thinking they’d be let in at 11. We ended up standing in the blazing sun for about an hour. There was no shade anywhere in the line. Cosmos flowers were blooming along the Bukhan River, but good luck finding a spot out of the sun.
+The crowd skewed toward locals, older folks, and families. Gapyeong residents got a 30% discount, and there’s a campground on the island, and with how much gear people were hauling in, plenty of them seemed to be campers.
+This was my first Jarasum, so I had no idea what to bring. I packed like I was going to a rock festival, but here a backpack chair with a backrest turned out to be just as useful as a picnic mat, since the whole vibe is spreading out a mat and settling in.
+            <div class="highlight-box">
+                Stages and Food
+             <p>There were three stages: one featuring a collaboration with AI, the Welcome Post across from the ticket booth, and the main stage. The Welcome Post hosted local bands, school clubs, and the like.
+Unlike the rock festivals I’ve been to, you can lay your mat down close to the stage here. At the ones I’ve gone to, the mat area is usually way in the back, so you end up watching the big screen. At Jarasum, almost everyone is sitting, so even if you’re not in the front row or you’re not tall, your view is rarely blocked.
+From the main stage’s mat area, the food and beverage booths were a 3-to-5-minute walk. Besides booths selling processed farm goods from Gapyeong, there was a good range of food stalls. I was surprised to find one selling ramen, clearly for the campers. Water and ice were 2,000 won each, and between 1 and 4 p.m., when it was hottest, the water line was the longest on the grounds.
+We found two recycling stations. One of them was right next to the smoking booth, which made it a pain to use.
+The restrooms were portable toilets, and there were plenty of them. But even in the heat, the air conditioning in them wasn’t running, and the lines got longer as the crowds grew. Beyond the portable ones, I couldn’t find any other restrooms, and the handwashing stations had no soap. That was a letdown.
+For lunch, we split a pack of half-and-half dakgangjeong (Korean fried chicken bites) for 20,000 won. Before going in, we also ate the garaetteok (cylinder-shaped rice cakes) handed out by the Gapyeong branch of the Korean Women Farmers Federation. Each pack had three sticks, and each of us got one pack and ate a stick before heading in.
+My friend bought a beer sold only at Jarasum for 7,000 won, decided it wasn’t to her taste, and dumped the rest. The drinks sold by local Gapyeong farmers, on the other hand, were a hit. I had quince tea for 4,000 won and a plum slushie for 5,000, and my friend had plum tea for 5,000. All three were delicious, and with the ingredients being 100% the real thing, the flavors were rich and full.
+The Gapyeong apples were crisp and sweet, and the isulcha (a tea made from mountain hydrangea leaves) was nutty and sweet. Both were free to sample.
+Around 3 p.m., we escaped the heat and sat under a tree. We each bought a drink and listened to the music while watching the big screen.
+Heading Home, and What to Bring Next Time
+After the festival, we walked about 15 minutes from Jarasum to Gapyeong Station. We caught the 9:43 p.m. train and reached Yongsan Station at 10:41. The fare was 6,900 won.
+Next time, I’m definitely bringing a backrest chair and my own soap for washing my hands.
+
+    </main>
+
 </body>
 </html>
