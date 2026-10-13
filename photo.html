@@ -2,20 +2,222 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>사진 갤러리</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매거진 - 사진 및 기사</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f9f9f9; }
-        .menu { text-align: right; margin-bottom: 30px; }
-        .menu a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; }
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa; /* 인스타그램 특유의 깔끔한 배경색 */
+            color: #262626;
+        }
+
+        /* 1. 상단 내비게이션 바 (이전 메뉴 유지) */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .navbar .logo-link {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .navbar .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+        .navbar .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* 2. 매거진 로고 영역 (추후 로고 이미지 교체 가능) */
+        .magazine-header {
+            max-width: 935px;
+            margin: 40px auto 20px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .magazine-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #111111;
+            /* 💡 나중에 로고 이미지가 완성되면 아래 주석(//)을 풀고 이미지 경로를 넣으세요 */
+            /* content: url('내로고파일.png'); */
+        }
+        .magazine-subtitle {
+            font-size: 0.9rem;
+            color: #8e8e8e;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+        .section-divider {
+            max-width: 935px;
+            margin: 0 auto 30px auto;
+            border: 0;
+            height: 1px;
+            background: #dbdbdb;
+        }
+
+        /* 3. 인스타그램 스타일 바둑판(그리드) 배열 */
+        .grid-container {
+            max-width: 935px; /* 인스타그램 실제 PC버전 가로폭 */
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 정확히 3열로 나눔 */
+            gap: 28px; /* 사진 사이의 간격 */
+        }
+
+        /* 4. 개별 기사 카드 카드 */
+        .article-card {
+            background-color: #ffffff;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .article-card:hover {
+            transform: translateY(-4px); /* 마우스 올리면 살짝 떠오름 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* 이미지 박스 (정정사각형 비율 유지) */
+        .image-box {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* 1:1 정사각형 비율 만드는 마법의 코드 */
+            background-color: #efefef;
+        }
+        .image-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 꽉 차게 조절 */
+        }
+
+        /* 기사 텍스트 영역 */
+        .article-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .article-title {
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.4;
+            color: #262626;
+            margin: 0 0 10px 0;
+            /* 두 줄 이상 넘어가면 말줄임표(...) 처리 */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-date {
+            font-size: 0.75rem;
+            color: #8e8e8e;
+            text-transform: uppercase;
+        }
+
+        /* 모바일 대응 (화면이 작아지면 2열이나 1열로 변경) */
+        @media (max-width: 735px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 10px;
+            }
+            .magazine-logo { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="menu">
-        <a href="index.html">홈</a>
-        <a href="photo.html" style="color: #3498db;">사진</a>
-        <a href="news.html">기사</a>
-    </div>
-    <h1>📷 사진 갤러리 페이지</h1>
-    <p>여기에 멋진 사진들을 나열할 수 있습니다.</p>
+
+    <!-- 상단 메뉴 바 -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">kkajimag 홈</a>
+        <div class="nav-links">
+            <a href="index.html">홈</a>
+            <a href="photo.html" style="color: #3498db;">사진</a>
+            <a href="news.html">기사</a>
+        </div>
+    </nav>
+
+    <!-- ✍️ 매거진 로고 영역 -->
+    <header class="magazine-header">
+        <!-- 나중에 로고가 완성되면 이 글자(KKAJIMAG MAGAZINE) 자리에 이미지가 들어가게 됩니다 -->
+        <div class="magazine-logo">KKAJIMAG MAGAZINE</div>
+        <div class="magazine-subtitle">최신 트렌드와 시각 자료를 다루는 개인 매거진</div>
+    </header>
+
+    <hr class="section-divider">
+
+    <!-- 🖼️ 바둑판(그리드) 기사 목록 시작 -->
+    <main class="grid-container">
+
+        <!-- 기사 1 -->
+        <article class="article-card">
+            <div class="image-box">
+                <!-- ⚠️ 본인이 업로드한 이미지 파일명으로 교체하세요 (예: myphoto.jpg) -->
+                <img src="myphoto.jpg" alt="기사 이미지 1">
+            </div>
+            <div class="article-info">
+                <h2 class="article-title">첫 번째 주요 뉴스 기사의 제목이 여기에 들어갑니다.</h2>
+                <span class="article-date">2026년 10월 13일</span>
+            </div>
+        </article>
+
+        <!-- 기사 2 -->
+        <article class="article-card">
+            <div class="image-box">
+                <!-- 아직 이미지가 없다면 똑같이 쓰거나 다른 파일명을 적어주세요 -->
+                <img src="myphoto.jpg" alt="기사 이미지 2">
+            </div>
+            <div class="article-info">
+                <h2 class="article-title">두 번째 매거진 스토리: 인스타그램 레이아웃 구현하기</h2>
+                <span class="article-date">2026년 10월 12일</span>
+            </div>
+        </article>
+
+        <!-- 기사 3 -->
+        <article class="article-card">
+            <div class="image-box">
+                <img src="myphoto.jpg" alt="기사 이미지 3">
+            </div>
+            <div class="article-info">
+                <h2 class="article-title">바둑판 배열로 시각적 효과를 극대화하는 웹디자인 트렌드</h2>
+                <span class="article-date">2026년 10월 11일</span>
+            </div>
+        </article>
+
+        <!-- 기사 4 (줄이 바뀌어도 자동으로 3열 배치됩니다) -->
+        <article class="article-card">
+            <div class="image-box">
+                <img src="myphoto.jpg" alt="기사 이미지 4">
+            </div>
+            <div class="article-info">
+                <h2 class="article-title">네 번째 최신 기사 제목 영역입니다.</h2>
+                <span class="article-date">2026년 10월 10일</span>
+            </div>
+        </article>
+
+    </main>
+
 </body>
 </html>
