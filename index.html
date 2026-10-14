@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>까지 매거진 - KKAJI MAGAZINE</title>
+    <title>까지 매거진 - NEWS</title>
     <style>
-        /* 기본 리셋 및 폰트 설정 */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,8 +14,8 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: #ffffff;
             color: #111111;
-            line-height: 1.5;
-            padding: 30px 50px;
+            line-height: 1.6;
+            padding: 0 0 80px 0;
         }
 
         a {
@@ -24,331 +23,191 @@
             text-decoration: none;
         }
 
-        /* 1. 상단 유틸리티 네비게이션 */
-        .top-bar {
+        /* 1. 상단 내비게이션 바 */
+        .navbar {
+            background-color: #ffffff;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
         }
-        .top-bar .nav-links a {
-            margin-left: 25px;
-        }
-        .top-bar .nav-links a:hover {
-            opacity: 0.6;
-        }
-
-        /* 2. 대형 브랜드 타이틀 & 서브헤더 */
-        .brand-header {
-            margin-bottom: 40px;
-        }
-        .brand-header .main-title {
-            font-size: clamp(3rem, 10vw, 8rem);
-            font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 0.9;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-        }
-        .brand-header .sub-info {
-            display: flex;
-            gap: 40px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-top: 1px solid #111;
-            padding-top: 15px;
-        }
-
-        /* 3. 히어로 메인 이미지 Section */
-        .hero-section {
-            width: 100%;
-            margin-bottom: 80px;
-        }
-        .hero-section img {
-            width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* 4. 기사 / 프로젝트 리스트 Section */
-        .work-list-section {
-            border-top: 1px solid #111;
-            padding-top: 20px;
-            margin-bottom: 100px;
-        }
-        .work-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 0;
-            border-bottom: 1px solid #eee;
-            transition: background-color 0.2s;
-        }
-        .work-item:hover {
-            background-color: #fafafa;
-        }
-        .work-item .title {
-            font-size: 2rem;
+        .navbar .logo-link {
+            font-size: 1.2rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            text-transform: uppercase;
         }
-        .work-item .category {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
+        .navbar .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #666666;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .navbar .nav-links a.active, .navbar .nav-links a:hover {
+            color: #111111;
         }
 
-        /* 5. 2열 Grid 소개 & 비주얼 Section */
-        .two-column-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 120px;
-            align-items: start;
+        /* 2. 메인 컨테이너 */
+        .news-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        .grid-left .head-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-        }
-        .grid-left .sub-image {
-            width: 100%;
-            height: auto;
-        }
-        .grid-right {
-            padding-top: 10px;
-        }
-        .grid-right .right-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-        .grid-right .right-desc {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.7;
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
             margin-bottom: 30px;
         }
 
-        /* 6. 하단 메뉴 & 푸터 Section */
-        .footer-section {
-            border-top: 1px solid #111;
-            padding-top: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        /* 3. 뉴스 카테고리 서브 메뉴 바 */
+        .category-bar {
+            display: flex;
+            gap: 25px;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            white-space: nowrap;
         }
-        .nav-numbered-list {
-            list-style: none;
-        }
-        .nav-numbered-list li {
-            font-size: 2rem;
+        .category-bar a {
+            font-size: 0.9rem;
             font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #888888;
+            transition: color 0.2s;
+        }
+        .category-bar a:hover, .category-bar a.active {
+            color: #111111;
+            border-bottom: 2px solid #111111;
+            padding-bottom: 13px;
+        }
+
+        /* 4. 기사 목록 그리드 구조 (3열) */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .news-card .thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
             margin-bottom: 15px;
+            background-color: #f0f0f0;
+        }
+
+        .news-card .category-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #3498db;
             text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
-        .nav-numbered-list li span {
-            font-size: 1.2rem;
-            color: #999;
-            margin-right: 15px;
-            font-weight: 400;
-        }
-        .footer-contact-info {
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: #444;
-        }
-        .footer-contact-info strong {
+
+        .news-card .title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 10px;
             color: #111;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 5px;
         }
 
-        /* 반응형 모바일 대응 */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
+        .news-card .date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: auto;
+        }
+
+        /* 반응형 설정 */
+        @media (max-width: 900px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .two-column-grid, .footer-section {
+        }
+        @media (max-width: 600px) {
+            .news-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
-            .brand-header .sub-info {
-                flex-direction: column;
-                gap: 10px;
+            .navbar {
+                padding: 15px 20px;
             }
-            .work-item .title {
-                font-size: 1.3rem;
-            }
-       /* 서브 사진 갤러리 영역 전체 크기 제한 및 배치 */
-.sub-image-gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 좌/우 2열 구조 */
-    gap: 10px;                      /* 사진 사이 간격 */
-    margin-top: 16px;
-    max-width: 480px;               /* 🌟 전체 갤러리의 최대 가로 너비 제한 (필요시 400px~550px로 조절) */
-    width: 100%;
-}
-
-/* 첫 번째 사진: 왼쪽 (크기 감소) */
-.sub-image-gallery img:nth-child(1) {
-    grid-row: span 2;
-    width: 100%;
-    height: 180px;                 /* 🌟 첫 번째 사진 높이 감소 (기존 280px -> 180px) */
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* 두 번째, 세 번째 사진: 오른쪽 위아래 (크기 감소) */
-.sub-image-gallery img:nth-child(2),
-.sub-image-gallery img:nth-child(3) {
-    width: 100%;
-    height: 85px;                  /* 🌟 오른쪽 사진들 높이 감소 (기존 134px -> 85px) */
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* 모바일 화면 대응 */
-@media (max-width: 768px) {
-    .sub-image-gallery {
-        max-width: 100%;            /* 모바일에선 화면에 맞춤 */
-    }
-}
+        }
     </style>
 </head>
 <body>
 
-    <!-- 1. 상단 미니 내비게이션 -->
-    <header class="top-bar">
-        <div class="brand-tag">
-            <!-- ✍️ [선택] 상단 미니 문구 (예: NARRATIVE) -->
-            KKAJI MAGAZINE
-        </div>
-        <nav class="nav-links">
-            <!-- ✍️ 상단 오른쪽 메뉴 링크 -->
-            <a href="index.html" style="text-decoration: underline;">HOME</a>
+    <!-- 상단 메인 메뉴 -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">까지</a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
             <a href="photo.html">PHOTO</a>
-            <a href="news.html">NEWS</a>
-            <a href="#contact">GET IN TOUCH</a>
+            <a href="news.html" class="active">NEWS</a>
+        </div>
+    </nav>
+
+    <main class="news-container">
+        
+        <h1 class="page-title">NEWS</h1>
+
+        <!-- 🏷️ 카테고리 서브 메뉴 바 (클릭시 개별 카테고리 페이지 연결 가능) -->
+        <nav class="category-bar">
+            <a href="news.html" class="active">ALL</a>
+            <a href="news-todays.html">TODAY'S NEWS</a>
+            <a href="news-culture.html">CULTURE</a>
+            <a href="news-society.html">SOCIETY</a>
+            <a href="news-economy.html">ECONOMY</a>
+            <a href="news-politics.html">POLITICS</a>
+            <a href="news-opinion.html">OPINION</a>
         </nav>
-    </header>
 
-    <!-- 2. 대형 대표 브랜드 헤더 -->
-    <section class="brand-header">
-        <!-- ✍️ 초대형 메인 텍스트/로고 (예:까지, KKAJI, NARRATIVE 등) -->
-        <h1 class="main-title">KKAJI</h1>
-        
-        <div class="sub-info">
-            <!-- ✍️ 브랜딩 서브 문구 1 -->
-            <div>STUDIO KKAJI</div>
-            <!-- ✍️ 브랜딩 서브 문구 2 -->
-            <div> 🥟🔨페이지 양성 중…(BASED ON KOREA WITH CULTURE & MUSIC PERFORMANCE REVIEWS)</div>
-        </div>
-    </section>
+        <!-- 📰 기사 목록 카드 영역 -->
+        <div class="news-grid">
 
-    <!-- 3. 메인 히어로 이미지 영역 -->
-    <section class="hero-section">
-        <!-- 메인 이미지 (maim.jpg 사용) -->
-        <img src="main.jpg" alt="메인 대표 사진">
-    </section>
+            <!-- 대표 기사 1 (자라섬 재즈 페스티벌) -->
+            <a href="jarasam-article.html" class="news-card">
+                <img src="jarasam.jpg" alt="자라섬 재즈 페스티벌" class="thumbnail">
+                <span class="category-tag">CULTURE</span>
+                <h2 class="title">Jarasum Jazz Festival in Gapyeong, From the Front Gate to the Ride Home</h2>
+                <span class="date">2026.10.13</span>
+            </a>
 
-    <!-- 4. 주요 기사 / 프로젝트 리스트 영역 -->
-    <section class="work-list-section">
-        
-        <!-- 기사 항목 1 -->
-        <a href="news.html" class="work-item">
-            <!-- ✍️ 대표 기사/프로젝트 제목 1 -->
-            <div class="title">JARASUM JAZZ FESTIVAL</div>
-            <!-- ✍️ 카테고리 또는 태그 1 -->
-            <div class="category">CONCERT REVIEW</div>
-        </a>
+            <!-- 기사 2 예시 -->
+            <a href="#" class="news-card">
+                <div class="thumbnail"></div> <!-- 사진 이미지 넣는 곳 -->
+                <span class="category-tag">TODAY'S NEWS</span>
+                <h2 class="title"><!-- ✍️ 기사 제목 2 -->Headline for Today's News Article</h2>
+                <span class="date">2026.10.14</span>
+            </a>
 
-        <!-- 기사 항목 2 -->
-        <a href="#" class="work-item">
-            <!-- ✍️ 대표 기사/프로젝트 제목 2 -->
-            <div class="title"><!-- ✍️ 여기에 두 번째 기사 제목 작성 -->ARTICLE TITLE TWO</div>
-            <!-- ✍️ 카테고리 또는 태그 2 -->
-            <div class="category"><!-- ✍️ 여기에 카테고리 작성 -->CULTURE</div>
-        </a>
+            <!-- 기사 3 예시 -->
+            <a href="#" class="news-card">
+                <div class="thumbnail"></div>
+                <span class="category-tag">OPINION</span>
+                <h2 class="title"><!-- ✍️ 기사 제목 3 -->Column & Opinion Title Here</h2>
+                <span class="date">2026.10.12</span>
+            </a>
 
-        <!-- 기사 항목 3 -->
-        <a href="#" class="work-item">
-            <!-- ✍️ 대표 기사/프로젝트 제목 3 -->
-            <div class="title"><!-- ✍️ 여기에 세 번째 기사 제목 작성 -->ARTICLE TITLE THREE</div>
-            <!-- ✍️ 카테고리 또는 태그 3 -->
-            <div class="category"><!-- ✍️ 여기에 카테고리 작성 -->PERFORMANCE</div>
-        </a>
-
-    </section>
-
-    <!-- 5. 2열 그리드 (강조 텍스트 + 서브 소개/이미지) -->
-    <section class="two-column-grid">
-        <div class="grid-left">
-            <!-- ✍️ 메인 메시지 / 슬로건 (대형 텍스트) -->
-            <div class="head-text">
-                <!-- ✍️ 예: CREATING NEXT LEVEL DIGITAL PRODUCTS -->
-                RECORDING LIVE MUSIC & UNFORGETTABLE PERFORMANCE MOMENTS
-            </div>
-            
-            <!-- ✍️ [선택] 서브 사진 (필요 없으면 <img> 태그 지우셔도 됩니다) -->
-            <!-- 서브 사진 갤러리 영역 -->
-            <div class="sub-image-gallery">
-            <img src="one.jpg" alt="서브 사진 1">
-            <img src="sil.jpg" alt="서브 사진 2">
-            <img src="xds.jpg" alt="서브 사진 3">
-</div>
         </div>
 
-        <div class="grid-right">
-            <!-- ✍️ 소제목 -->
-            <div class="right-title">
-                OFFICIAL MAGAZINE OF KKAJI
-            </div>
-            <!-- ✍️ 상세 소개글 (자유롭게 작성) -->
-            Exploring and archiving Korean culture and performance arts in English.
-            <p class="right-desc">
-                <!-- ✍️ 여기에 매거진 소개글을 적어주세요. -->
-                국내외 다양한 문화 현장의 생생한 순간을 공유합니다.
-            </p>
-        </div>
-    </section>
-
-    <!-- 6. 하단 푸터 / 넘버링 메뉴 섹션 -->
-    <footer class="footer-section" id="contact">
-        <!-- 좌측 번호 순서 메뉴 -->
-        <ul class="nav-numbered-list">
-            <li><span>01</span> <a href="index.html">HOME</a></li>
-            <li><span>02</span> <a href="photo.html">PHOTO</a></li>
-            <li><span>03</span> <a href="news.html">NEWS</a></li>
-            <li><span>04</span> <a href="#contact">CONTACT</a></li>
-        </ul>
-
-        <!-- 우측 연락처 및 소셜 정보 -->
-        <div class="footer-contact-info">
-            <p><strong>LOCATION</strong></p>
-            <p><!-- ✍️ 위치/지역 정보 -->SEOUL, SOUTH KOREA</p>
-            <br>
-            <p><strong>EMAIL</strong></p>
-            <p><!-- ✍️ 이메일 주소 -->nothing@없음.com</p>
-            <br>
-            <p><strong>SOCIAL</strong></p>
-            <p><!-- ✍️ SNS 주소 -->INSTAGRAM / GITHUB</p>
-        </div>
-    </footer>
+    </main>
 
 </body>
 </html>
