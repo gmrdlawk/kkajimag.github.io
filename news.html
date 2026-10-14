@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>까지 매거진 - NEWS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+            padding: 0 0 80px 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 1. 상단 내비게이션 바 */
+        .navbar {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .navbar .logo-link {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .navbar .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #666666;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .navbar .nav-links a.active, .navbar .nav-links a:hover {
+            color: #111111;
+        }
+
+        /* 2. 메인 컨테이너 */
+        .news-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+
+        /* 3. 뉴스 카테고리 서브 메뉴 바 */
+        .category-bar {
+            display: flex;
+            gap: 25px;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .category-bar a {
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #888888;
+            transition: color 0.2s;
+        }
+        .category-bar a:hover, .category-bar a.active {
+            color: #111111;
+            border-bottom: 2px solid #111111;
+            padding-bottom: 13px;
+        }
+
+        /* 4. 기사 목록 그리드 구조 (3열) */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .news-card .thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: #f0f0f0;
+        }
+
+        .news-card .category-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #3498db;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .news-card .title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .news-card .date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: auto;
+        }
+
+        /* 반응형 설정 */
+        @media (max-width: 900px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 메인 메뉴 -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">까지</a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="photo.html">PHOTO</a>
+            <a href="news.html" class="active">NEWS</a>
+        </div>
+    </nav>
+
+    <main class="news-container">
+        
+        <h1 class="page-title">NEWS</h1>
+
+        <!-- 🏷️ 카테고리 서브 메뉴 바 (클릭시 개별 카테고리 페이지 연결 가능) -->
+        <nav class="category-bar">
+            <a href="news.html" class="active">ALL</a>
+            <a href="news-todays.html">TODAY'S NEWS</a>
+            <a href="news-culture.html">CULTURE</a>
+            <a href="news-society.html">SOCIETY</a>
+            <a href="news-economy.html">ECONOMY</a>
+            <a href="news-politics.html">POLITICS</a>
+            <a href="news-opinion.html">OPINION</a>
+        </nav>
+
+        <!-- 📰 기사 목록 카드 영역 -->
+        <div class="news-grid">
+
+            <!-- 대표 기사 1 (자라섬 재즈 페스티벌) -->
+            <a href="jarasam-article.html" class="news-card">
+                <img src="jarasam.jpg" alt="자라섬 재즈 페스티벌" class="thumbnail">
+                <span class="category-tag">CULTURE</span>
+                <h2 class="title">Jarasum Jazz Festival in Gapyeong, From the Front Gate to the Ride Home</h2>
+                <span class="date">2026.10.13</span>
+            </a>
+
+            <!-- 기사 2 예시 -->
+            <a href="#" class="news-card">
+                <div class="thumbnail"></div> <!-- 사진 이미지 넣는 곳 -->
+                <span class="category-tag">TODAY'S NEWS</span>
+                <h2 class="title"><!-- ✍️ 기사 제목 2 -->Headline for Today's News Article</h2>
+                <span class="date">2026.10.14</span>
+            </a>
+
+            <!-- 기사 3 예시 -->
+            <a href="#" class="news-card">
+                <div class="thumbnail"></div>
+                <span class="category-tag">OPINION</span>
+                <h2 class="title"><!-- ✍️ 기사 제목 3 -->Column & Opinion Title Here</h2>
+                <span class="date">2026.10.12</span>
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
