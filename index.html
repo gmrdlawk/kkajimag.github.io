@@ -196,7 +196,7 @@
             }
         .sub-image-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 2개면 repeat(2, 1fr)로 수정 */
+            grid-template-columns: repeat(2, 1fr); /* 2개면 repeat(2, 1fr)로 수정 */
             gap: 12px;
             margin-top: 20px;
         }
@@ -207,8 +207,11 @@
             object-fit: cover;
             border-radius: 4px;
         }
+            .sub-image-gallery img:first-child {
+                grid-column: 1 / -1;   /* 1번 열부터 끝까지(전체 너비) 차지 */
+                height: 240px;
 
-        @media (max-width: 768px) {
+                @media (max-width: 768px) {
             .sub-image-gallery {
                 grid-template-columns: repeat(2, 1fr);
     </style>
