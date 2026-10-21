@@ -23,14 +23,8 @@
         --shadow: 0 18px 50px rgba(56, 36, 26, 0.08);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
@@ -38,21 +32,9 @@
         color: var(--text);
         line-height: 1.6;
       }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .container {
-        width: min(1180px, calc(100% - 32px));
-        margin: 0 auto;
-      }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
 
       .topbar {
         position: sticky;
@@ -62,7 +44,6 @@
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--line);
       }
-
       .topbar-inner {
         height: 84px;
         display: flex;
@@ -70,7 +51,6 @@
         justify-content: space-between;
         gap: 24px;
       }
-
       .brand {
         display: flex;
         align-items: center;
@@ -78,7 +58,6 @@
         font-weight: 800;
         letter-spacing: -0.04em;
       }
-
       .brand-mark {
         width: 38px;
         height: 38px;
@@ -89,11 +68,7 @@
         color: #fff;
         font-size: 0.9rem;
       }
-
-      .brand-text {
-        font-size: 1.2rem;
-      }
-
+      .brand-text { font-size: 1.2rem; }
       .nav {
         display: flex;
         align-items: center;
@@ -101,12 +76,7 @@
         color: var(--muted);
         font-size: 0.96rem;
       }
-
-      .nav a {
-        position: relative;
-        transition: color 0.2s ease;
-      }
-
+      .nav a { position: relative; transition: color 0.2s ease; }
       .nav a::after {
         content: "";
         position: absolute;
@@ -119,15 +89,8 @@
         transform-origin: left;
         transition: transform 0.2s ease;
       }
-
-      .nav a:hover {
-        color: var(--primary);
-      }
-
-      .nav a:hover::after {
-        transform: scaleX(1);
-      }
-
+      .nav a:hover { color: var(--primary); }
+      .nav a:hover::after { transform: scaleX(1); }
       .header-cta {
         display: inline-flex;
         align-items: center;
@@ -141,17 +104,13 @@
         box-shadow: 0 10px 22px rgba(81, 56, 39, 0.15);
       }
 
-      .hero {
-        padding: 54px 0 40px;
-      }
-
+      .hero { padding: 54px 0 40px; }
       .hero-grid {
         display: grid;
         grid-template-columns: 1.05fr 0.95fr;
         align-items: center;
         gap: 30px;
       }
-
       .eyebrow {
         display: inline-block;
         padding: 7px 12px;
@@ -163,7 +122,6 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-
       h1 {
         margin: 18px 0 18px;
         font-size: clamp(3rem, 5vw, 5.2rem);
@@ -171,26 +129,19 @@
         letter-spacing: -0.06em;
         font-weight: 900;
       }
-
-      h1 span {
-        display: block;
-      }
-
+      h1 span { display: block; }
       .lead {
         max-width: 560px;
         font-size: 1.08rem;
         color: var(--muted);
       }
-
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
         margin-top: 30px;
       }
-
-      .primary-btn,
-      .secondary-btn {
+      .primary-btn, .secondary-btn {
         height: 52px;
         display: inline-flex;
         align-items: center;
@@ -202,25 +153,17 @@
         cursor: pointer;
         border: none;
       }
-
       .primary-btn {
         background: var(--primary);
         color: #fff;
         box-shadow: 0 12px 30px rgba(81, 56, 39, 0.18);
       }
-
       .secondary-btn {
         border: 1px solid rgba(81, 56, 39, 0.2);
         background: rgba(255, 255, 255, 0.25);
         color: var(--primary);
       }
-
-      .primary-btn:hover,
-      .secondary-btn:hover,
-      .header-cta:hover {
-        transform: translateY(-1px);
-      }
-
+      .primary-btn:hover, .secondary-btn:hover, .header-cta:hover { transform: translateY(-1px); }
       .hero-meta {
         margin-top: 34px;
         display: grid;
@@ -228,14 +171,12 @@
         gap: 16px;
         max-width: 560px;
       }
-
       .meta-box {
         background: rgba(255, 255, 255, 0.3);
         border: 1px solid var(--line);
         border-radius: 20px;
         padding: 18px 16px;
       }
-
       .meta-box strong {
         display: block;
         font-size: 1.7rem;
@@ -243,16 +184,8 @@
         letter-spacing: -0.05em;
         margin-bottom: 8px;
       }
-
-      .meta-box span {
-        font-size: 0.8rem;
-        color: var(--muted);
-      }
-
-      .hero-visual {
-        position: relative;
-      }
-
+      .meta-box span { font-size: 0.8rem; color: var(--muted); }
+      .hero-visual { position: relative; }
       .hero-card {
         position: relative;
         border-radius: 30px;
@@ -260,13 +193,11 @@
         box-shadow: var(--shadow);
         background: #ddd;
       }
-
       .hero-card img {
         width: 100%;
         height: 620px;
         object-fit: cover;
       }
-
       .floating-book {
         position: absolute;
         right: -18px;
@@ -278,7 +209,6 @@
         border: 1px solid rgba(81, 56, 39, 0.08);
         box-shadow: 0 20px 40px rgba(36, 24, 20, 0.12);
       }
-
       .book-cover {
         height: 110px;
         border-radius: 14px;
@@ -287,29 +217,20 @@
         overflow: hidden;
         margin-bottom: 12px;
       }
-
       .book-cover::before {
         content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient(90deg, rgba(255,255,255,0.18), transparent 28%, rgba(0,0,0,0.08));
       }
-
       .floating-book strong {
         display: block;
         font-size: 0.9rem;
         margin-bottom: 4px;
       }
+      .floating-book span { color: var(--muted); font-size: 0.74rem; }
 
-      .floating-book span {
-        color: var(--muted);
-        font-size: 0.74rem;
-      }
-
-      .section {
-        padding: 52px 0;
-      }
-
+      .section { padding: 52px 0; }
       .section-head {
         display: flex;
         align-items: end;
@@ -317,32 +238,27 @@
         gap: 24px;
         margin-bottom: 26px;
       }
-
       .section-head h2 {
         margin: 0;
         font-size: clamp(2rem, 4vw, 3rem);
         letter-spacing: -0.06em;
       }
-
       .section-head p {
         margin: 0;
         color: var(--muted);
         max-width: 54ch;
       }
-
       .feature-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 22px;
       }
-
       .feature-card {
         background: rgba(255, 255, 255, 0.36);
         border: 1px solid var(--line);
         border-radius: 24px;
         padding: 26px 22px;
       }
-
       .feature-icon {
         width: 56px;
         height: 56px;
@@ -353,23 +269,14 @@
         margin-bottom: 18px;
         font-size: 1.5rem;
       }
-
-      .feature-card h3 {
-        margin: 0 0 10px;
-        font-size: 1.24rem;
-      }
-
-      .feature-card p {
-        margin: 0;
-        color: var(--muted);
-      }
+      .feature-card h3 { margin: 0 0 10px; font-size: 1.24rem; }
+      .feature-card p { margin: 0; color: var(--muted); }
 
       .book-showcase {
         display: grid;
         grid-template-columns: 0.95fr 1.05fr;
         gap: 26px;
       }
-
       .book-spotlight {
         background: #f6f0ea;
         border: 1px solid var(--line);
@@ -377,14 +284,12 @@
         overflow: hidden;
         box-shadow: var(--shadow);
       }
-
       .book-spotlight img {
         width: 100%;
         height: 100%;
         min-height: 520px;
         object-fit: cover;
       }
-
       .book-info {
         display: flex;
         flex-direction: column;
@@ -394,7 +299,6 @@
         border-radius: 30px;
         padding: 34px 30px;
       }
-
       .tag {
         display: inline-block;
         margin-bottom: 14px;
@@ -408,32 +312,19 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-
       .book-info h3 {
         margin: 0 0 10px;
         font-size: clamp(2rem, 3vw, 2.7rem);
         letter-spacing: -0.05em;
       }
-
-      .author {
-        margin-bottom: 18px;
-        color: var(--muted);
-        font-weight: 600;
-      }
-
-      .book-info p {
-        margin: 0 0 18px;
-        color: var(--muted);
-        max-width: 58ch;
-      }
-
+      .author { margin-bottom: 18px; color: var(--muted); font-weight: 600; }
+      .book-info p { margin: 0 0 18px; color: var(--muted); max-width: 58ch; }
       .mini-stats {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
         margin: 18px 0 0;
       }
-
       .mini-stats span {
         display: inline-flex;
         align-items: center;
@@ -451,7 +342,6 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 22px;
       }
-
       .reading-card {
         background: rgba(255, 255, 255, 0.34);
         border: 1px solid var(--line);
@@ -459,17 +349,12 @@
         overflow: hidden;
         box-shadow: 0 16px 30px rgba(48, 29, 23, 0.04);
       }
-
       .reading-card img {
         width: 100%;
         height: 260px;
         object-fit: cover;
       }
-
-      .reading-card-body {
-        padding: 20px 20px 24px;
-      }
-
+      .reading-card-body { padding: 20px 20px 24px; }
       .reading-card-body .label {
         display: inline-block;
         margin-bottom: 12px;
@@ -479,17 +364,12 @@
         text-transform: uppercase;
         color: var(--muted);
       }
-
       .reading-card-body h3 {
         margin: 0 0 8px;
         font-size: 1.5rem;
         letter-spacing: -0.05em;
       }
-
-      .reading-card-body p {
-        margin: 0;
-        color: var(--muted);
-      }
+      .reading-card-body p { margin: 0; color: var(--muted); }
 
       .quote-block {
         background: linear-gradient(135deg, rgba(81, 56, 39, 0.96), rgba(50, 33, 27, 0.92));
@@ -497,14 +377,12 @@
         border-radius: 32px;
         padding: 36px 38px;
       }
-
       .quote-content {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 26px;
         align-items: center;
       }
-
       .quote-content blockquote {
         margin: 0;
         font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -512,14 +390,12 @@
         letter-spacing: -0.05em;
         font-weight: 700;
       }
-
       .quote-person {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 14px;
       }
-
       .avatar {
         width: 86px;
         height: 86px;
@@ -527,28 +403,20 @@
         background: linear-gradient(135deg, #d8b98d, #b88459);
         box-shadow: inset 0 0 0 5px rgba(255,255,255,0.2);
       }
-
-      .quote-person strong {
-        font-size: 1.1rem;
-      }
-
-      .quote-person span {
-        color: rgba(247, 239, 232, 0.8);
-      }
+      .quote-person strong { font-size: 1.1rem; }
+      .quote-person span { color: rgba(247, 239, 232, 0.8); }
 
       .schedule-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 22px;
       }
-
       .schedule-card {
         background: rgba(255, 255, 255, 0.32);
         border: 1px solid var(--line);
         border-radius: 24px;
         padding: 26px 22px;
       }
-
       .date-pill {
         display: inline-flex;
         align-items: center;
@@ -561,17 +429,8 @@
         font-weight: 800;
         margin-bottom: 18px;
       }
-
-      .schedule-card h3 {
-        margin: 0 0 10px;
-        font-size: 1.4rem;
-      }
-
-      .schedule-card p {
-        margin: 0 0 16px;
-        color: var(--muted);
-      }
-
+      .schedule-card h3 { margin: 0 0 10px; font-size: 1.4rem; }
+      .schedule-card p { margin: 0 0 16px; color: var(--muted); }
       .schedule-card ul {
         padding-left: 18px;
         margin: 0;
@@ -583,33 +442,20 @@
         grid-template-columns: 0.95fr 1.05fr;
         gap: 22px;
       }
-
       .community-card {
         background: rgba(255,255,255,0.34);
         border: 1px solid var(--line);
         border-radius: 28px;
         padding: 24px;
       }
-
       .community-card h3 {
         margin: 0 0 16px;
         font-size: 1.55rem;
         letter-spacing: -0.05em;
       }
-
-      .inline-form,
-      .field-row {
-        display: flex;
-        gap: 10px;
-      }
-
-      .inline-form {
-        margin-bottom: 10px;
-      }
-
-      .text-input,
-      .text-area,
-      .select-input {
+      .inline-form, .field-row { display: flex; gap: 10px; }
+      .inline-form { margin-bottom: 10px; }
+      .text-input, .text-area, .select-input {
         width: 100%;
         border: 1px solid rgba(81, 56, 39, 0.12);
         border-radius: 14px;
@@ -618,18 +464,9 @@
         font: inherit;
         padding: 12px 14px;
       }
-
-      .text-area {
-        min-height: 130px;
-        resize: vertical;
-      }
-
-      .inline-form .text-input {
-        min-width: 0;
-      }
-
-      .inline-form button,
-      .submit-btn {
+      .text-area { min-height: 130px; resize: vertical; }
+      .inline-form .text-input { min-width: 0; }
+      .inline-form button, .submit-btn {
         padding: 0 18px;
         height: 48px;
         border: none;
@@ -639,36 +476,24 @@
         font-weight: 700;
         cursor: pointer;
       }
-
       .nickname-status {
         margin: 0;
         color: var(--muted);
         font-size: 0.9rem;
       }
-
-      .form-block {
-        display: grid;
-        gap: 12px;
-      }
-
+      .form-block { display: grid; gap: 12px; }
       .helper-text {
         margin: 0;
         font-size: 0.8rem;
         color: var(--muted);
       }
-
-      .posts-list {
-        display: grid;
-        gap: 14px;
-      }
-
+      .posts-list { display: grid; gap: 14px; }
       .post-item {
         border: 1px solid rgba(81, 56, 39, 0.1);
         background: rgba(255,255,255,0.28);
         border-radius: 18px;
         padding: 16px 18px;
       }
-
       .post-header {
         display: flex;
         justify-content: space-between;
@@ -676,28 +501,47 @@
         align-items: center;
         margin-bottom: 8px;
       }
-
-      .post-user {
-        font-weight: 800;
-      }
-
-      .post-meta {
-        color: var(--muted);
-        font-size: 0.76rem;
-      }
-
+      .post-user { font-weight: 800; }
+      .post-meta { color: var(--muted); font-size: 0.76rem; }
       .post-body {
         margin: 0;
         color: var(--text);
         white-space: pre-wrap;
       }
-
       .empty-state {
         padding: 20px;
         border: 1px dashed rgba(81,56,39,0.22);
         border-radius: 18px;
         color: var(--muted);
         text-align: center;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .gallery-card {
+        background: rgba(255,255,255,0.34);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+      .gallery-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .gallery-body {
+        padding: 14px 16px 18px;
+      }
+      .gallery-body h3 {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+      }
+      .gallery-body p {
+        margin: 0;
+        color: var(--muted);
       }
 
       .cta-box {
@@ -710,22 +554,16 @@
         border-radius: 28px;
         background: rgba(255, 255, 255, 0.3);
       }
-
       .cta-box h3 {
         margin: 0 0 6px;
         font-size: clamp(1.8rem, 3vw, 2.7rem);
         letter-spacing: -0.05em;
       }
-
-      .cta-box p {
-        margin: 0;
-        color: var(--muted);
-      }
+      .cta-box p { margin: 0; color: var(--muted); }
 
       footer {
         padding: 24px 0 60px;
       }
-
       .footer-inner {
         display: flex;
         align-items: center;
@@ -737,64 +575,24 @@
       }
 
       @media (max-width: 980px) {
-        .hero-grid,
-        .book-showcase,
-        .quote-content,
-        .reading-list,
-        .schedule-grid,
-        .feature-grid,
-        .community-shell {
+        .hero-grid, .book-showcase, .quote-content, .reading-list, .schedule-grid, .feature-grid, .community-shell, .gallery-grid {
           grid-template-columns: 1fr 1fr;
         }
-
-        .hero-grid,
-        .community-shell {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-card img {
-          height: 520px;
-        }
-
-        .nav {
-          display: none;
-        }
+        .hero-grid, .community-shell { grid-template-columns: 1fr; }
+        .hero-card img { height: 520px; }
+        .nav { display: none; }
       }
-
       @media (max-width: 720px) {
-        .section-head,
-        .cta-box,
-        .footer-inner {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .feature-grid,
-        .book-showcase,
-        .reading-list,
-        .schedule-grid,
-        .quote-content,
-        .hero-meta {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          padding-top: 32px;
-        }
-
-        .hero-card img {
-          height: 440px;
-        }
-
+        .section-head, .cta-box, .footer-inner { flex-direction: column; align-items: flex-start; }
+        .feature-grid, .book-showcase, .reading-list, .schedule-grid, .quote-content, .hero-meta, .gallery-grid { grid-template-columns: 1fr; }
+        .hero { padding-top: 32px; }
+        .hero-card img { height: 440px; }
         .floating-book {
           right: 16px;
           bottom: 16px;
           width: 150px;
         }
-
-        .topbar-inner {
-          height: 72px;
-        }
+        .topbar-inner { height: 72px; }
       }
     </style>
   </head>
@@ -812,10 +610,11 @@
           <a href="#book">추천도서</a>
           <a href="#schedule">일정</a>
           <a href="#community">후기</a>
+          <a href="#gallery">사진</a>
           <a href="#contact">문의</a>
         </nav>
 
-        <a href="#contact" class="header-cta">참여하기</a>
+        <a href="photo-manager.html" class="header-cta">사진 관리</a>
       </div>
     </header>
 
@@ -856,10 +655,7 @@
 
           <div class="hero-visual" aria-label="북장 독서모임 이미지">
             <div class="hero-card">
-              <img
-                src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1000&q=80"
-                alt="독서모임 책장과 책들"
-              />
+              <img id="heroImage" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1000&q=80" alt="독서모임 책장과 책들" />
             </div>
 
             <div class="floating-book" aria-label="이번 달 추천 도서">
@@ -1109,6 +905,17 @@
         </div>
       </section>
 
+      <section class="section" id="gallery">
+        <div class="container">
+          <div class="section-head">
+            <h2>모임 사진</h2>
+            <p>사진 관리 페이지에서 업로드한 이미지들과 함께 지난 모임의 기록을 한눈에 살펴볼 수 있습니다.</p>
+          </div>
+
+          <div id="galleryList" class="gallery-grid"></div>
+        </div>
+      </section>
+
       <section class="section" id="contact">
         <div class="container">
           <div class="cta-box">
@@ -1132,6 +939,8 @@
     <script>
       const NICKNAME_KEY = 'bookjang.nickname';
       const POSTS_KEY = 'bookjang.posts';
+      const GALLERY_KEY = 'bookjang.gallery';
+      const HERO_KEY = 'bookjang.heroImage';
 
       const nicknameInput = document.getElementById('nicknameInput');
       const nicknameForm = document.getElementById('nickname-form');
@@ -1140,11 +949,12 @@
       const monthSelect = document.getElementById('monthSelect');
       const postText = document.getElementById('postText');
       const postsList = document.getElementById('postsList');
+      const galleryList = document.getElementById('galleryList');
+      const heroImage = document.getElementById('heroImage');
 
       function getStoredNickname() {
         return localStorage.getItem(NICKNAME_KEY) || '';
       }
-
       function setNickname(name) {
         const trimmed = name.trim();
         if (!trimmed) {
@@ -1153,12 +963,9 @@
         }
         localStorage.setItem(NICKNAME_KEY, trimmed);
       }
-
       function renderNicknameStatus() {
         const nickname = getStoredNickname();
-        nicknameStatus.textContent = nickname
-          ? `현재 닉네임: ${nickname}`
-          : '현재 닉네임: 없음';
+        nicknameStatus.textContent = nickname ? `현재 닉네임: ${nickname}` : '현재 닉네임: 없음';
         nicknameInput.value = nickname;
       }
 
@@ -1170,11 +977,9 @@
           return [];
         }
       }
-
       function savePosts(posts) {
         localStorage.setItem(POSTS_KEY, JSON.stringify(posts));
       }
-
       function renderPosts() {
         const posts = [...getPosts()].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
@@ -1199,22 +1004,51 @@
         }).join('');
       }
 
+      function getGallery() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
+          return Array.isArray(saved) ? saved : [];
+        } catch (error) {
+          return [];
+        }
+      }
+      function renderGallery() {
+        const items = getGallery();
+        if (!items.length) {
+          galleryList.innerHTML = '<div class="empty-state">저장된 모임 사진이 아직 없습니다. <a href="photo-manager.html" style="color:#513827; font-weight:700;">사진 관리 페이지</a>에서 추가해 주세요.</div>';
+          return;
+        }
+
+        galleryList.innerHTML = items.slice(0, 6).map((item) => `
+          <article class="gallery-card">
+            <img src="${item.src}" alt="${item.title || '북장 모임 사진'}" />
+            <div class="gallery-body">
+              <h3>${item.title || '북장 모임'}</h3>
+              <p>${item.caption || '사진 설명이 없습니다.'}</p>
+            </div>
+          </article>
+        `).join('');
+      }
+      function renderHeroImage() {
+        const savedHero = localStorage.getItem(HERO_KEY);
+        if (savedHero) {
+          heroImage.src = savedHero;
+        }
+      }
+
       nicknameForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const nickname = nicknameInput.value;
-
         if (!nickname.trim()) {
           nicknameInput.focus();
           return;
         }
-
         setNickname(nickname);
         renderNicknameStatus();
       });
 
       postForm.addEventListener('submit', function (event) {
         event.preventDefault();
-
         const nickname = getStoredNickname();
         const text = postText.value.trim();
         const month = monthSelect.value;
@@ -1224,7 +1058,6 @@
           alert('닉네임을 먼저 설정해 주세요.');
           return;
         }
-
         if (!text) {
           postText.focus();
           return;
@@ -1238,7 +1071,6 @@
           text,
           createdAt: new Date().toISOString()
         });
-
         savePosts(posts);
         postText.value = '';
         renderPosts();
@@ -1246,6 +1078,8 @@
 
       renderNicknameStatus();
       renderPosts();
+      renderGallery();
+      renderHeroImage();
     </script>
   </body>
 </html>
