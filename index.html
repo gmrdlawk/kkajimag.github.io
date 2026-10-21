@@ -199,6 +199,8 @@
         border-radius: 999px;
         font-weight: 700;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+        border: none;
       }
 
       .primary-btn {
@@ -576,6 +578,128 @@
         color: var(--muted);
       }
 
+      .community-shell {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 22px;
+      }
+
+      .community-card {
+        background: rgba(255,255,255,0.34);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 24px;
+      }
+
+      .community-card h3 {
+        margin: 0 0 16px;
+        font-size: 1.55rem;
+        letter-spacing: -0.05em;
+      }
+
+      .inline-form,
+      .field-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .inline-form {
+        margin-bottom: 10px;
+      }
+
+      .text-input,
+      .text-area,
+      .select-input {
+        width: 100%;
+        border: 1px solid rgba(81, 56, 39, 0.12);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.38);
+        color: var(--text);
+        font: inherit;
+        padding: 12px 14px;
+      }
+
+      .text-area {
+        min-height: 130px;
+        resize: vertical;
+      }
+
+      .inline-form .text-input {
+        min-width: 0;
+      }
+
+      .inline-form button,
+      .submit-btn {
+        padding: 0 18px;
+        height: 48px;
+        border: none;
+        border-radius: 14px;
+        background: var(--primary);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .nickname-status {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .form-block {
+        display: grid;
+        gap: 12px;
+      }
+
+      .helper-text {
+        margin: 0;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .posts-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .post-item {
+        border: 1px solid rgba(81, 56, 39, 0.1);
+        background: rgba(255,255,255,0.28);
+        border-radius: 18px;
+        padding: 16px 18px;
+      }
+
+      .post-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .post-user {
+        font-weight: 800;
+      }
+
+      .post-meta {
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+
+      .post-body {
+        margin: 0;
+        color: var(--text);
+        white-space: pre-wrap;
+      }
+
+      .empty-state {
+        padding: 20px;
+        border: 1px dashed rgba(81,56,39,0.22);
+        border-radius: 18px;
+        color: var(--muted);
+        text-align: center;
+      }
+
       .cta-box {
         display: flex;
         align-items: center;
@@ -618,11 +742,13 @@
         .quote-content,
         .reading-list,
         .schedule-grid,
-        .feature-grid {
+        .feature-grid,
+        .community-shell {
           grid-template-columns: 1fr 1fr;
         }
 
-        .hero-grid {
+        .hero-grid,
+        .community-shell {
           grid-template-columns: 1fr;
         }
 
@@ -685,6 +811,7 @@
           <a href="#program">활동</a>
           <a href="#book">추천도서</a>
           <a href="#schedule">일정</a>
+          <a href="#community">후기</a>
           <a href="#contact">문의</a>
         </nav>
 
@@ -928,6 +1055,60 @@
         </div>
       </section>
 
+      <section class="section" id="community">
+        <div class="container">
+          <div class="section-head">
+            <h2>독서 후기 남기기</h2>
+            <p>각자의 닉네임으로 간단히 남기는 독서 기록은 다음 모임의 대화의 시작이 됩니다.</p>
+          </div>
+
+          <div class="community-shell">
+            <div class="community-card">
+              <h3>닉네임 설정</h3>
+              <form id="nickname-form" class="inline-form">
+                <input
+                  id="nicknameInput"
+                  class="text-input"
+                  type="text"
+                  maxlength="20"
+                  placeholder="닉네임을 입력해 주세요"
+                  aria-label="닉네임 입력"
+                />
+                <button type="submit">저장</button>
+              </form>
+              <p id="nicknameStatus" class="nickname-status">현재 닉네임: 없음</p>
+
+              <div style="height: 18px;"></div>
+
+              <h3>글 남기기</h3>
+              <form id="postForm" class="form-block">
+                <div class="field-row">
+                  <select id="monthSelect" class="select-input" aria-label="모임 월 선택">
+                    <option value="10월 북장 독서 모임">10월 북장 독서 모임</option>
+                    <option value="11월 북장 독서 모임">11월 북장 독서 모임</option>
+                    <option value="12월 북장 독서 모임">12월 북장 독서 모임</option>
+                  </select>
+                </div>
+                <textarea
+                  id="postText"
+                  class="text-area"
+                  maxlength="400"
+                  placeholder="이번 책을 읽고 느낀 점, 인상 깊은 문장, 질문을 남겨주세요."
+                  aria-label="독서 후기 입력"
+                ></textarea>
+                <p class="helper-text">닉네임은 브라우저에 저장되며, 같은 기기에서 계속 사용할 수 있어요.</p>
+                <button type="submit" class="submit-btn">후기 저장하기</button>
+              </form>
+            </div>
+
+            <div class="community-card">
+              <h3>이번 달 참여자 이야기</h3>
+              <div id="postsList" class="posts-list" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="contact">
         <div class="container">
           <div class="cta-box">
@@ -947,5 +1128,124 @@
         <div>hello@bookjang.com · 서울시 종로구</div>
       </div>
     </footer>
+
+    <script>
+      const NICKNAME_KEY = 'bookjang.nickname';
+      const POSTS_KEY = 'bookjang.posts';
+
+      const nicknameInput = document.getElementById('nicknameInput');
+      const nicknameForm = document.getElementById('nickname-form');
+      const nicknameStatus = document.getElementById('nicknameStatus');
+      const postForm = document.getElementById('postForm');
+      const monthSelect = document.getElementById('monthSelect');
+      const postText = document.getElementById('postText');
+      const postsList = document.getElementById('postsList');
+
+      function getStoredNickname() {
+        return localStorage.getItem(NICKNAME_KEY) || '';
+      }
+
+      function setNickname(name) {
+        const trimmed = name.trim();
+        if (!trimmed) {
+          localStorage.removeItem(NICKNAME_KEY);
+          return;
+        }
+        localStorage.setItem(NICKNAME_KEY, trimmed);
+      }
+
+      function renderNicknameStatus() {
+        const nickname = getStoredNickname();
+        nicknameStatus.textContent = nickname
+          ? `현재 닉네임: ${nickname}`
+          : '현재 닉네임: 없음';
+        nicknameInput.value = nickname;
+      }
+
+      function getPosts() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(POSTS_KEY) || '[]');
+          return Array.isArray(saved) ? saved : [];
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function savePosts(posts) {
+        localStorage.setItem(POSTS_KEY, JSON.stringify(posts));
+      }
+
+      function renderPosts() {
+        const posts = [...getPosts()].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+        if (!posts.length) {
+          postsList.innerHTML = '<div class="empty-state">아직 남겨진 독서 후기가 없어요. 첫 번째 이야기를 남겨보세요.</div>';
+          return;
+        }
+
+        postsList.innerHTML = posts.map((post) => {
+          const date = new Date(post.createdAt);
+          const formatted = `${date.getMonth() + 1}/${date.getDate()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+
+          return `
+            <article class="post-item">
+              <div class="post-header">
+                <div class="post-user">${post.nickname}</div>
+                <div class="post-meta">${post.month} · ${formatted}</div>
+              </div>
+              <p class="post-body">${(post.text || '').replace(/\n/g, '<br>')}</p>
+            </article>
+          `;
+        }).join('');
+      }
+
+      nicknameForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const nickname = nicknameInput.value;
+
+        if (!nickname.trim()) {
+          nicknameInput.focus();
+          return;
+        }
+
+        setNickname(nickname);
+        renderNicknameStatus();
+      });
+
+      postForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nickname = getStoredNickname();
+        const text = postText.value.trim();
+        const month = monthSelect.value;
+
+        if (!nickname) {
+          nicknameInput.focus();
+          alert('닉네임을 먼저 설정해 주세요.');
+          return;
+        }
+
+        if (!text) {
+          postText.focus();
+          return;
+        }
+
+        const posts = getPosts();
+        posts.push({
+          id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          nickname,
+          month,
+          text,
+          createdAt: new Date().toISOString()
+        });
+
+        savePosts(posts);
+        postText.value = '';
+        renderPosts();
+      });
+
+      renderNicknameStatus();
+      renderPosts();
+    </script>
   </body>
 </html>
